@@ -7,7 +7,7 @@
         "uri": "src/features/home-page.feature",
         "duration": {
           "seconds": 0,
-          "nanos": 398322220
+          "nanos": 520050992
         }
       }
     ],
@@ -18,7 +18,7 @@
     "uri": "src/step-definitions/navigation.ts",
     "meanDuration": {
       "seconds": 0,
-      "nanos": 398322220
+      "nanos": 520050991
     }
   },
   {
@@ -29,7 +29,7 @@
         "uri": "src/features/home-page.feature",
         "duration": {
           "seconds": 0,
-          "nanos": 29030811
+          "nanos": 39381470
         }
       }
     ],
@@ -40,7 +40,7 @@
     "uri": "src/step-definitions/assertions/verify-element-visibility.ts",
     "meanDuration": {
       "seconds": 0,
-      "nanos": 29030811
+      "nanos": 39381470
     }
   },
   {
