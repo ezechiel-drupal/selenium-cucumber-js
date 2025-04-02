@@ -1,0 +1,30 @@
+{
+  "name": "selenium-cucumber-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:dev": "cucumber-js --config ./cucumber.yml --tags '@dev'",
+    "test:smoke": "cucumber-js --config ./cucumber.yml  --tags '@smoke'",
+    "test:regression": "cucumber-js --config ./cucumber.yml  --tags '@regression'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.27.0",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-typescript": "^7.27.0",
+    "@cucumber/cucumber": "^11.2.0",
+    "@types/chai": "^5.2.1",
+    "@types/selenium-webdriver": "^4.1.28",
+    "chai": "^5.2.0",
+    "chromedriver": "^134.0.5",
+    "dotenv": "^16.4.7",
+    "geckodriver": "^5.0.0",
+    "rimraf": "^6.0.1",
+    "selenium-webdriver": "^4.30.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
+}

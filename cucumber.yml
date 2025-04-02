@@ -1,0 +1,34 @@
+# cucumber.js configuration file
+# Config options can be found here: https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md
+
+default:
+  paths: # Paths to where your feature files are
+    - src/features/**/*.feature
+  backtrace: true # Show the full backtrace for errors
+  dryRun: false # Prepare a test run but don't run it
+  forceExit: false # Explicitly call process.exit() after the test run (when run via CLI)
+  failFast: false # Stop running tests when a test fails
+  format: # Name/path and (optionally) output file path of each formatter to use
+    - html:reports/cucumber-report.html
+    - json:reports/cucumber-report.json
+    - usage-json:reports/cucumber-usage-report.json
+    - summary
+  formatOptions: # Options to be provided to formatters
+    html:
+      externalAttachments: true # All medias are saved to external files
+  #import: # string[] Paths to where your support code is
+  language: "en" # Default language for your feature files
+  #loader: string[] # Module specifiers for loaders to be registered ahead of loading support code
+  #name: string[] # Regular expressions of which scenario names should match one of to be run
+  order: defined # Run in the order defined, or in a random order
+  parallel: 0 # Run tests in parallel with the given number of worker processes
+  publish: false # Publish a report of your test run to https://reports.cucumber.io/
+  require: # Paths to where your support code is, for CommonJS
+    - src/step-definitions/**/**/*.ts
+  requireModule: # Names of transpilation modules to load, loaded via require()
+    - ts-node/register
+  retry: 0 # Retry failing tests up to the given number of times
+  retryTagFilter: "" # Tag expression to filter which scenarios can be retried
+  strict: false # Fail the test run if there are pending steps
+  #tags: "" # Tag expression to filter which scenarios should be run
+  #worldParameters: # Parameters to pass to your World

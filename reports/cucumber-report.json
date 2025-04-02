@@ -1,0 +1,93 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "as-a-user-i-expect-to-be-able-to-navigate-the-homepage;as-a-user-i-expect-to-be-able-to-see-the-context-header",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "As a user I expect to be able to see the context header",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2305777592
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am on the \"home\" page",
+            "match": {
+              "location": "src/step-definitions/navigation.ts:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 398322220
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "The \"partners header\" should contain the text \"Develoment Partners\"",
+            "match": {
+              "location": "src/step-definitions/assertions/verify-element-visibility.ts:6"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 29030811,
+              "error_message": "AssertionError: expected 'Development Partners' to include 'Develoment Partners'\n    at ScenarioWorld.<anonymous> (/Users/odinasgard/Desktop/selenium-cucumber-js/src/step-definitions/assertions/verify-element-visibility.ts:23:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async wrapPromiseWithTimeout (/Users/odinasgard/Desktop/selenium-cucumber-js/node_modules/.pnpm/@cucumber+cucumber@11.2.0/node_modules/@cucumber/cucumber/src/time.ts:55:10)\n    at async Object.run (/Users/odinasgard/Desktop/selenium-cucumber-js/node_modules/.pnpm/@cucumber+cucumber@11.2.0/node_modules/@cucumber/cucumber/src/user_code_runner.ts:86:16)\n    at async Object.run (/Users/odinasgard/Desktop/selenium-cucumber-js/node_modules/.pnpm/@cucumber+cucumber@11.2.0/node_modules/@cucumber/cucumber/src/runtime/step_runner.ts:53:20)\n    at async TestCaseRunner.invokeStep (/Users/odinasgard/Desktop/selenium-cucumber-js/node_modules/.pnpm/@cucumber+cucumber@11.2.0/node_modules/@cucumber/cucumber/src/runtime/test_case_runner.ts:140:12)\n    at async TestCaseRunner.runStep (/Users/odinasgard/Desktop/selenium-cucumber-js/node_modules/.pnpm/@cucumber+cucumber@11.2.0/node_modules/@cucumber/cucumber/src/runtime/test_case_runner.ts:340:20)\n    at async /Users/odinasgard/Desktop/selenium-cucumber-js/node_modules/.pnpm/@cucumber+cucumber@11.2.0/node_modules/@cucumber/cucumber/src/runtime/test_case_runner.ts:246:34\n    at async TestCaseRunner.aroundTestStep (/Users/odinasgard/Desktop/selenium-cucumber-js/node_modules/.pnpm/@cucumber+cucumber@11.2.0/node_modules/@cucumber/cucumber/src/runtime/test_case_runner.ts:173:28)\n    at async TestCaseRunner.runAttempt (/Users/odinasgard/Desktop/selenium-cucumber-js/node_modules/.pnpm/@cucumber+cucumber@11.2.0/node_modules/@cucumber/cucumber/src/runtime/test_case_runner.ts:224:7)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "The \"webdriver logo\" should be displayed",
+            "match": {
+              "location": "src/step-definitions/assertions/verify-element-visibility.ts:27"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 184550266
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@dev",
+            "line": 3
+          },
+          {
+            "name": "@smoke",
+            "line": 4
+          },
+          {
+            "name": "@regression",
+            "line": 5
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "as-a-user-i-expect-to-be-able-to-navigate-the-homepage",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "As a user I expect to be able to navigate the homepage",
+    "tags": [],
+    "uri": "src/features/home-page.feature"
+  }
+]
