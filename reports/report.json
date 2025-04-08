@@ -1,0 +1,92 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "as-a-user-i-expect-to-be-able-to-navigate-the-homepage;as-a-user-i-expect-to-be-able-to-see-the-context-header",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "As a user I expect to be able to see the context header",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2432949638
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am on the \"home\" page",
+            "match": {
+              "location": "src/step-definitions/navigation.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 485429464
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "The \"partners header\" should contain the text \"Development Partners\"",
+            "match": {
+              "location": "src/step-definitions/assertions/verify-element-value.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 37868626
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "The \"webdriver logo\" should be displayed",
+            "match": {
+              "location": "src/step-definitions/assertions/verify-element-visibility.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16589176
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 57366979
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@dev",
+            "line": 3
+          },
+          {
+            "name": "@smoke",
+            "line": 4
+          },
+          {
+            "name": "@regression",
+            "line": 5
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "as-a-user-i-expect-to-be-able-to-navigate-the-homepage",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "As a user I expect to be able to navigate the homepage",
+    "tags": [],
+    "uri": "src/features/home-page.feature"
+  }
+]

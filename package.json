@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:dev": "cucumber-js --config ./cucumber.yml --tags '@dev'",
-    "test:smoke": "cucumber-js --config ./cucumber.yml  --tags '@smoke'",
-    "test:regression": "cucumber-js --config ./cucumber.yml  --tags '@regression'"
+    "transpile": "rimraf dist && babel --extensions .ts --out-dir dist src",
+    "cucumber-compile": "pnpm transpile && cucumber-js",
+    "cucumber": "COMMON_CONFIG_FILE=env/common.env pnpm cucumber-compile",
+    "precucumber": "rimraf reports && mkdir reports && echo {} > reports/report.json",
+    "postcucumber": "COMMON_CONFIG_FILE=env/common.env ts-node ./src/reporter/cucumber-report.ts",
+    "test": "./run_tests.sh"
   },
   "keywords": [],
   "author": "",
@@ -18,10 +21,11 @@
     "@cucumber/cucumber": "^11.2.0",
     "@types/chai": "^5.2.1",
     "@types/selenium-webdriver": "^4.1.28",
-    "chai": "^5.2.0",
     "chromedriver": "^134.0.5",
+    "cucumber-html-reporter": "^7.2.0",
     "dotenv": "^16.4.7",
     "geckodriver": "^5.0.0",
+    "path": "^0.12.7",
     "rimraf": "^6.0.1",
     "selenium-webdriver": "^4.30.0",
     "ts-node": "^10.9.2",

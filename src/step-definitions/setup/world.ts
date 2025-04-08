@@ -1,7 +1,8 @@
 import { IWorldOptions, setWorldConstructor, World } from "@cucumber/cucumber";
 import { Builder, WebDriver } from "selenium-webdriver";
 import { Options } from "selenium-webdriver/chrome";
-import { browserArguments, testBrowser } from "../../../env/environment.json";
+import { GlobalConfig, GlobalVariables } from "../../env/global";
+import { env } from "../../env/parseEnv";
 import { stringIsOfOptions } from "../../support/options-helper";
 
 export type Screen = {
@@ -11,7 +12,11 @@ export type Screen = {
 export class ScenarioWorld extends World {
   constructor(options: IWorldOptions) {
     super(options);
+
+    this.globalConfig = options.parameters as GlobalConfig;
   }
+
+  globalConfig: GlobalConfig;
 
   screen!: Screen;
 
@@ -28,8 +33,8 @@ export class ScenarioWorld extends World {
 
   // Choosing the browser
   private newBrowser = async (): Promise<string> => {
-    const automationBrowser = testBrowser;
-    const automationBrowsers = ["chrome", "firefox", "safari"]; // Safari has no headless nor parallel support
+    const automationBrowser = env("UI_AUTOMATION_BROWSER");
+    const automationBrowsers = ["chrome", "firefox", "safari"];
     const validAutomationBrowser = stringIsOfOptions(
       automationBrowser,
       automationBrowsers
@@ -39,14 +44,12 @@ export class ScenarioWorld extends World {
 
   // Instance initiation
   private browserBuilder = async (browser: string): Promise<Builder> => {
-    console.log(`\n  Executing on ${browser} browser :`);
-
     const builder = new Builder();
 
     switch (browser) {
       case "chrome":
         const chromeBrowserOptions = new Options();
-        chromeBrowserOptions.addArguments(...browserArguments);
+        chromeBrowserOptions.addArguments(env("BROWSER_ARGUMENTS"));
 
         return builder
           .forBrowser(browser)
@@ -54,7 +57,7 @@ export class ScenarioWorld extends World {
 
       case "firefox":
         const firefoxBrowserOptions = new Options();
-        firefoxBrowserOptions.addArguments(...browserArguments);
+        firefoxBrowserOptions.addArguments(env("BROWSER_ARGUMENTS"));
         firefoxBrowserOptions.set("acceptInsecureCerts", true);
 
         return builder
@@ -62,7 +65,7 @@ export class ScenarioWorld extends World {
           .withCapabilities(firefoxBrowserOptions);
 
       default:
-        return builder.forBrowser(browser);
+        return builder.forBrowser(browser); // Safari has no headless nor parallel support
     }
   };
 }

@@ -1,5 +1,3 @@
-import config from "../../env/environment.json";
-
 const optionsIncludeString = (string: string, options: readonly string[]) => {
   return options.includes(string);
 };

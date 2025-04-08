@@ -1,11 +1,12 @@
-import { After, Before } from "@cucumber/cucumber";
+import { After, Before, setDefaultTimeout } from "@cucumber/cucumber";
 import * as fs from "fs";
+import { env, envNumber } from "../../env/parseEnv";
 import { ScenarioWorld } from "./world";
+
+setDefaultTimeout(envNumber("SCRIPT_TIMEOUT"));
 
 // Run before each scenario
 Before(async function (scenario) {
-  console.log(`Running scenario ${scenario.pickle.name}`);
-
   const ready = await this.init();
   return ready;
 });
@@ -20,16 +21,17 @@ After(async function (this: ScenarioWorld, scenario) {
 
   // Take a screenshot after each fail
   if (scenarioStatus === "FAILED") {
-    const path = `reports/failure-screenshots/${scenario.gherkinDocument.feature?.name}`;
-
     driver.takeScreenshot().then((screenshot) => {
-      fs.mkdirSync(`${path}`, {
-        recursive: true,
-      });
+      const buffer = Buffer.from(screenshot, "base64");
+      this.attach(buffer, "image/png");
+
+      fs.mkdirSync(env("SCREENSHOT_PATH"));
       fs.writeFileSync(
-        `${path}/${scenario.pickle.id}.png`,
-        screenshot,
-        "base64"
+        `${env("SCREENSHOT_PATH")}${scenario.pickle.name.replace(
+          /[^a-zA-Z0-9]/g,
+          "_"
+        )}.png`,
+        buffer
       );
     });
   }

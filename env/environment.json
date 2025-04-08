@@ -1,6 +1,4 @@
 {
-  "testBrowser": "chrome",
-  "browserArguments": ["--headless"],
   "_arguments-dictionnary-1": "https://github.com/GoogleChrome/chrome-launcher/blob/main/docs/chrome-flags-for-tools.md",
   "_arguments-dictionnary-2": "https://peter.sh/experiments/chromium-command-line-switches/"
 }
