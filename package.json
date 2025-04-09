@@ -7,8 +7,8 @@
     "transpile": "rimraf dist && babel --extensions .ts --out-dir dist src",
     "cucumber-compile": "pnpm transpile && cucumber-js",
     "cucumber": "COMMON_CONFIG_FILE=env/common.env pnpm cucumber-compile",
-    "precucumber": "rimraf reports && mkdir reports && echo {} > reports/report.json",
-    "postcucumber": "COMMON_CONFIG_FILE=env/common.env ts-node ./src/reporter/cucumber-report.ts",
+    "precucumber": "rimraf reports && mkdir reports",
+    "postcucumber": "COMMON_CONFIG_FILE=env/common.env",
     "test": "./run_tests.sh"
   },
   "keywords": [],
@@ -30,5 +30,8 @@
     "selenium-webdriver": "^4.30.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1"
   }
 }

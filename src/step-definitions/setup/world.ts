@@ -1,7 +1,7 @@
 import { IWorldOptions, setWorldConstructor, World } from "@cucumber/cucumber";
 import { Builder, WebDriver } from "selenium-webdriver";
 import { Options } from "selenium-webdriver/chrome";
-import { GlobalConfig, GlobalVariables } from "../../env/global";
+import { GlobalConfig } from "../../env/global";
 import { env } from "../../env/parseEnv";
 import { stringIsOfOptions } from "../../support/options-helper";
 

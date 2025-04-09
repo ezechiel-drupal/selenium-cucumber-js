@@ -13,7 +13,6 @@ Then(
       globalConfig,
     } = this;
 
-    console.log(`The ${elementKey} should be displayed`);
 
     const elementIdentifier = await getElementLocator(
       driver,

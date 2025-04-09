@@ -17,9 +17,7 @@ Then(
       globalConfig,
     } = this;
 
-    console.log(
-      `The ${elementKey} should contain the text ${exepectedElementText}`
-    );
+
 
     const elementIdentifier = await getElementLocator(
       driver,

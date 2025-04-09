@@ -13,10 +13,20 @@ Given(
       globalConfig,
     } = this;
 
-    console.log(`I am on the ${pageId} page`);
 
     await navigateToPage(driver, pageId, globalConfig);
 
     await waitFor(() => currentPathMatchesPageId(driver, pageId, globalConfig));
   }
 );
+
+Given(/^I am directed to the "([^"]*)" page$/,
+  async function (this: ScenarioWorld, pageId: PageId) {
+    const {
+      screen: { driver },
+      globalConfig,
+    } = this;
+
+    await waitFor(() => currentPathMatchesPageId(driver, pageId, globalConfig));
+  }
+)

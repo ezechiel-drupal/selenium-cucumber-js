@@ -7,6 +7,9 @@ import {
 } from "./env/global";
 import { env, getJsonFromFile } from "./env/parseEnv";
 import * as fs from "fs";
+import { Chalk } from "chalk";
+
+const customChalk = new Chalk({ level: 1 });
 
 dotenv.config({ path: env("COMMON_CONFIG_FILE") });
 
@@ -38,12 +41,14 @@ const common = `./src/features/**/*.feature \
   --require ./src/step-definitions/**/**/*.ts \
   -f json:./reports/report.json \
   --world-parameters ${JSON.stringify(worldParameters)} \
-  --format summary`;
+  --format summary \
+  --format html:./reports/report.html
+  --format json:./reports/report.json`;
 
 const dev = `${common} --tags '@dev'`;
 const smoke = `${common} --tags '@smoke'`;
 const regression = `${common} --tags '@regression'`;
 
-console.log("\nRequesting Cucumber to start...");
+console.log(customChalk.bold.dim("\nRequesting cucumber...\n"));
 
 export { dev, regression, smoke };

@@ -4,6 +4,96 @@
     "elements": [
       {
         "description": "",
+        "id": "as-a-user-i-expect-to-be-able-to-create-contacts;as-a-user-i-expect-to-be-able-to-create-a-new-contact",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "As a user I expect to be able to create a new contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2534282090
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am on the \"about\" page",
+            "match": {
+              "location": "src/step-definitions/navigation.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 859705953
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I click on the \"selenium logo\"",
+            "match": {
+              "location": "src/step-definitions/click.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 171500901
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I am directed to the \"home\" page",
+            "match": {
+              "location": "src/step-definitions/navigation.ts:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7252887
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 57244922
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@dev",
+            "line": 3
+          },
+          {
+            "name": "@smoke",
+            "line": 4
+          },
+          {
+            "name": "@regression",
+            "line": 5
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "as-a-user-i-expect-to-be-able-to-create-contacts",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "As a user I expect to be able to create contacts",
+    "tags": [],
+    "uri": "src/features/create-contact.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
         "id": "as-a-user-i-expect-to-be-able-to-navigate-the-homepage;as-a-user-i-expect-to-be-able-to-see-the-context-header",
         "keyword": "Scenario",
         "line": 6,
@@ -14,7 +104,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 2432949638
+              "duration": 1425239088
             }
           },
           {
@@ -27,7 +117,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 485429464
+              "duration": 441259128
             }
           },
           {
@@ -40,7 +130,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 37868626
+              "duration": 25192505
             }
           },
           {
@@ -53,7 +143,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 16589176
+              "duration": 12709950
             }
           },
           {
@@ -61,7 +151,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 57366979
+              "duration": 56177912
             }
           }
         ],

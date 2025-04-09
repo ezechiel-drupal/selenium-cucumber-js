@@ -2,12 +2,20 @@ import { After, Before, setDefaultTimeout } from "@cucumber/cucumber";
 import * as fs from "fs";
 import { env, envNumber } from "../../env/parseEnv";
 import { ScenarioWorld } from "./world";
+import { Chalk } from "chalk";
+
+const customChalk = new Chalk({ level: 1 });
 
 setDefaultTimeout(envNumber("SCRIPT_TIMEOUT"));
 
 // Run before each scenario
 Before(async function (scenario) {
   const ready = await this.init();
+
+  console.log(
+    "- Running scenario " + customChalk.yellow(scenario.pickle.name) + "\n"
+  );
+
   return ready;
 });
 
@@ -25,7 +33,10 @@ After(async function (this: ScenarioWorld, scenario) {
       const buffer = Buffer.from(screenshot, "base64");
       this.attach(buffer, "image/png");
 
-      fs.mkdirSync(env("SCREENSHOT_PATH"));
+      if (!fs.existsSync(env("SCREENSHOT_PATH"))) {
+        fs.mkdirSync(env("SCREENSHOT_PATH"));
+      }
+
       fs.writeFileSync(
         `${env("SCREENSHOT_PATH")}${scenario.pickle.name.replace(
           /[^a-zA-Z0-9]/g,

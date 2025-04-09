@@ -9,7 +9,6 @@ export const navigateToPage = async (
   const { UI_AUTOMATION_HOST: hostName = "local" } = process.env;
 
   const hostPath = hostsConfig[`${hostName}`];
-  console.log("hostPath ", hostPath);
 
   const url = new URL(hostPath);
 
@@ -27,6 +26,8 @@ export const currentPathMatchesPageId = async (
 ): Promise<boolean> => {
   const currentURL: string = await driver.getCurrentUrl();
   const { pathname: currentPath } = new URL(currentURL);
+
+  // Debugging help - console.log("currentPath", currentPath);
 
   return pathMatchesPageId(currentPath, pageId, globalConfig);
 };
