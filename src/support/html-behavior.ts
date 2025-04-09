@@ -16,7 +16,7 @@ export const elementDisplayed = async (
   try {
     await driver.findElement(By.id(elementIdentifier));
     return true;
-  } catch (error) {
+  } catch {
     return false;
   }
 };

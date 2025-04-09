@@ -33,7 +33,9 @@ export class ScenarioWorld extends World {
 
   // Choosing the browser
   private newBrowser = async (): Promise<string> => {
-    const automationBrowser = env("UI_AUTOMATION_BROWSER");
+    const automationBrowser = await Promise.resolve(
+      env("UI_AUTOMATION_BROWSER")
+    );
     const automationBrowsers = ["chrome", "firefox", "safari"];
     const validAutomationBrowser = stringIsOfOptions(
       automationBrowser,
@@ -43,19 +45,21 @@ export class ScenarioWorld extends World {
   };
 
   // Instance initiation
+  // eslint-disable-next-line @typescript-eslint/require-await
   private browserBuilder = async (browser: string): Promise<Builder> => {
     const builder = new Builder();
 
     switch (browser) {
-      case "chrome":
+      case "chrome": {
         const chromeBrowserOptions = new Options();
         chromeBrowserOptions.addArguments(env("BROWSER_ARGUMENTS"));
 
         return builder
           .forBrowser(browser)
           .withCapabilities(chromeBrowserOptions);
+      }
 
-      case "firefox":
+      case "firefox": {
         const firefoxBrowserOptions = new Options();
         firefoxBrowserOptions.addArguments(env("BROWSER_ARGUMENTS"));
         firefoxBrowserOptions.set("acceptInsecureCerts", true);
@@ -63,6 +67,7 @@ export class ScenarioWorld extends World {
         return builder
           .forBrowser(browser)
           .withCapabilities(firefoxBrowserOptions);
+      }
 
       default:
         return builder.forBrowser(browser); // Safari has no headless nor parallel support

@@ -1,6 +1,6 @@
 import { When } from "@cucumber/cucumber";
 import { ElementKey } from "../env/global";
-import { clickElement, clickOnTextLink } from "../support/html-behavior";
+import { clickElement } from "../support/html-behavior";
 import { waitFor, waitForSelector } from "../support/wait-for-behavior";
 import { getElementLocator } from "../support/web-element-helper";
 import { ScenarioWorld } from "./setup/world";

@@ -1,3 +1,5 @@
+//
+
 import { After, Before, setDefaultTimeout } from "@cucumber/cucumber";
 import * as fs from "fs";
 import { env, envNumber } from "../../env/parseEnv";
@@ -10,7 +12,7 @@ setDefaultTimeout(envNumber("SCRIPT_TIMEOUT"));
 
 // Run before each scenario
 Before(async function (scenario) {
-  const ready = await this.init();
+  const ready: string = await this.init();
 
   console.log(
     "- Running scenario " + customChalk.yellow(scenario.pickle.name) + "\n"

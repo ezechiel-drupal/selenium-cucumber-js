@@ -20,7 +20,7 @@ const mappingFiles = fs.readdirSync(
 );
 
 const pageElementMappings: PageElementMappings = mappingFiles.reduce(
-  (pageElementConfigAcc: {}, file: string) => {
+  (pageElementConfigAcc: object, file: string) => {
     const key = file.replace(".json", "");
     const elementMappings = getJsonFromFile(
       `${env("PAGE_ELEMENTS_PATH")}${file}`
@@ -42,8 +42,9 @@ const common = `./src/features/**/*.feature \
   -f json:./reports/report.json \
   --world-parameters ${JSON.stringify(worldParameters)} \
   --format summary \
-  --format html:./reports/report.html
-  --format json:./reports/report.json`;
+  --format html:./reports/report.html \
+  --format json:./reports/report.json \
+  --format usage-json:./reports/usage.json`;
 
 const dev = `${common} --tags '@dev'`;
 const smoke = `${common} --tags '@smoke'`;

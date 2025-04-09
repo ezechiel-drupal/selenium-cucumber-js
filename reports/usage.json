@@ -1,0 +1,121 @@
+[
+  {
+    "matches": [
+      {
+        "line": 7,
+        "text": "I am on the \"about\" page",
+        "uri": "src/features/create-contact.feature",
+        "duration": {
+          "seconds": 0,
+          "nanos": 525100656
+        }
+      },
+      {
+        "line": 7,
+        "text": "I am on the \"home\" page",
+        "uri": "src/features/home-page.feature",
+        "duration": {
+          "seconds": 0,
+          "nanos": 387882905
+        }
+      }
+    ],
+    "code": "async function (pageId) {\n    const { screen: { driver }, globalConfig, } = this;\n    await (0, navigation_behavior_2.navigateToPage)(driver, pageId, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(() => (0, navigation_behavior_1.currentPathMatchesPageId)(driver, pageId, globalConfig));\n}",
+    "line": 8,
+    "pattern": "^I am on the \"([^\"]*)\" page$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/navigation.ts",
+    "meanDuration": {
+      "seconds": 0,
+      "nanos": 456491780
+    }
+  },
+  {
+    "matches": [
+      {
+        "line": 8,
+        "text": "I click on the \"selenium logo\"",
+        "uri": "src/features/create-contact.feature",
+        "duration": {
+          "seconds": 0,
+          "nanos": 194915474
+        }
+      }
+    ],
+    "code": "async function (elementKey) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        if (elementStable) {\n            await (0, html_behavior_1.clickElement)(driver, elementIdentifier);\n        }\n        return elementStable;\n    });\n}",
+    "line": 8,
+    "pattern": "^I click on the \"([^\"]*)\"$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/click.ts",
+    "meanDuration": {
+      "seconds": 0,
+      "nanos": 194915474
+    }
+  },
+  {
+    "matches": [
+      {
+        "line": 8,
+        "text": "The \"partners header\" should contain the text \"Development Partners\"",
+        "uri": "src/features/home-page.feature",
+        "duration": {
+          "seconds": 0,
+          "nanos": 26338616
+        }
+      }
+    ],
+    "code": "async function (elementKey, exepectedElementText) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementText = await (0, html_behavior_1.getElementText)(driver, elementIdentifier);\n        return elementText?.includes(exepectedElementText);\n    });\n}",
+    "line": 8,
+    "pattern": "^The \"([^\"]*)\" should contain the text \"(.*)\"$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/assertions/verify-element-value.ts",
+    "meanDuration": {
+      "seconds": 0,
+      "nanos": 26338616
+    }
+  },
+  {
+    "matches": [
+      {
+        "line": 9,
+        "text": "The \"webdriver logo\" should be displayed",
+        "uri": "src/features/home-page.feature",
+        "duration": {
+          "seconds": 0,
+          "nanos": 11750795
+        }
+      }
+    ],
+    "code": "async function (elementKey) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const isElementVisible = await (0, html_behavior_1.elementDisplayed)(driver, elementIdentifier);\n        return isElementVisible;\n    });\n}",
+    "line": 8,
+    "pattern": "^The \"([^\"]*)\" should be displayed$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/assertions/verify-element-visibility.ts",
+    "meanDuration": {
+      "seconds": 0,
+      "nanos": 11750795
+    }
+  },
+  {
+    "matches": [
+      {
+        "line": 9,
+        "text": "I am directed to the \"home\" page",
+        "uri": "src/features/create-contact.feature",
+        "duration": {
+          "seconds": 0,
+          "nanos": 8213369
+        }
+      }
+    ],
+    "code": "async function (pageId) {\n    const { screen: { driver }, globalConfig, } = this;\n    await (0, wait_for_behavior_1.waitFor)(() => (0, navigation_behavior_1.currentPathMatchesPageId)(driver, pageId, globalConfig));\n}",
+    "line": 23,
+    "pattern": "^I am directed to the \"([^\"]*)\" page$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/navigation.ts",
+    "meanDuration": {
+      "seconds": 0,
+      "nanos": 8213369
+    }
+  }
+]

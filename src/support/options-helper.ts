@@ -9,5 +9,7 @@ export const stringIsOfOptions = (
   if (optionsIncludeString(stringLevel, options)) {
     return stringLevel;
   }
-  throw new Error(`String ${stringLevel} needs to be one of ${options}`);
+  throw new Error(
+    `String ${stringLevel} needs to be one of ${options.join(", ")}`
+  );
 };

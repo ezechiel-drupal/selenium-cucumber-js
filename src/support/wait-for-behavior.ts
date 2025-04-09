@@ -29,7 +29,7 @@ export const waitForSelector = async (
     await driver.switchTo().defaultContent();
     await driver.findElement(By.css(elementIdentifier));
     return true;
-  } catch (error) {
+  } catch {
     return false;
   }
 };
