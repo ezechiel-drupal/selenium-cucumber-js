@@ -44,7 +44,9 @@ const common = `./src/features/**/*.feature \
   --format summary \
   --format html:./reports/report.html \
   --format json:./reports/report.json \
-  --format usage-json:./reports/usage.json`;
+  --format usage-json:./reports/usage.json \
+  --parallel ${env("PARALLEL")} \
+  --retry ${env("RETRY")}`;
 
 const dev = `${common} --tags '@dev'`;
 const smoke = `${common} --tags '@smoke'`;
