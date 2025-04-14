@@ -1,7 +1,7 @@
 import { IWorldOptions, setWorldConstructor, World } from "@cucumber/cucumber";
 import { Builder, WebDriver } from "selenium-webdriver";
 import { Options } from "selenium-webdriver/chrome";
-import { GlobalConfig } from "../../env/global";
+import { GlobalConfig, GlobalVariables } from "../../env/global";
 import { env } from "../../env/parseEnv";
 import { stringIsOfOptions } from "../../support/options-helper";
 
@@ -14,9 +14,13 @@ export class ScenarioWorld extends World {
     super(options);
 
     this.globalConfig = options.parameters as GlobalConfig;
+
+    this.globalVariables = {};
   }
 
   globalConfig: GlobalConfig;
+
+  globalVariables: GlobalVariables;
 
   screen!: Screen;
 

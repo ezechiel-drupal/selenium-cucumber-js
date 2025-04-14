@@ -1,15 +1,20 @@
 import { When } from "@cucumber/cucumber";
-import { ElementKey } from "../env/global";
-import { clickElement } from "../support/html-behavior";
+import { ElementKey, GlobalVariableKey } from "../env/global";
+import { getElementText } from "../support/html-behavior";
 import { waitFor, waitForSelector } from "../support/wait-for-behavior";
 import { getElementLocator } from "../support/web-element-helper";
 import { ScenarioWorld } from "./setup/world";
 
 When(
-  /^I (check)?(uncheck)? the "([^"]*)" (?:check box|radio button|switch)$/,
-  async function (this: ScenarioWorld, elementKey: ElementKey) {
+  /^I retrieve the "([^"]*)" text and store it as "([^"]*)" in global variables$/,
+  async function (
+    this: ScenarioWorld,
+    elementKey: ElementKey,
+    globalVariableKey: GlobalVariableKey
+  ) {
     const {
       screen: { driver },
+      globalVariables,
       globalConfig,
     } = this;
 
@@ -22,9 +27,12 @@ When(
     await waitFor(async () => {
       const elementStable = await waitForSelector(driver, elementIdentifier);
       if (elementStable) {
-        await clickElement(driver, elementIdentifier);
+        const elementText = await getElementText(driver, elementIdentifier);
+
+        if (elementText != null) {
+          globalVariables[globalVariableKey] = elementText;
+        }
       }
-      return elementStable;
     });
   }
 );

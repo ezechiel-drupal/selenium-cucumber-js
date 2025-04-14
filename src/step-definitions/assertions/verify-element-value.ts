@@ -7,6 +7,7 @@ import {
   Negate,
 } from "../../env/global";
 import {
+  getAttributeText,
   getElementText,
   getElementTextAtIndex,
   getElementValue,
@@ -193,6 +194,42 @@ Then(
         return elementText?.includes(expectedElementText) === !negate;
       }
 
+      return elementStable;
+    });
+  }
+);
+
+Then(
+  /^The "([^"]*)" "([^"]*)" attribute should( not)? contain the text "(.*)"$/,
+  async function (
+    this: ScenarioWorld,
+    elementKey: ElementKey,
+    attribute: string,
+    negate: Negate,
+    expectedElementText: ExpectedElementText
+  ) {
+    const {
+      screen: { driver },
+      globalConfig,
+    } = this;
+
+    const elementIdentifier = await getElementLocator(
+      driver,
+      elementKey,
+      globalConfig
+    );
+
+    await waitFor(async () => {
+      const elementStable = await waitForSelector(driver, elementIdentifier);
+
+      if (elementStable) {
+        const attributeText = await getAttributeText(
+          driver,
+          elementIdentifier,
+          attribute
+        );
+        return attributeText?.includes(expectedElementText) === !negate;
+      }
       return elementStable;
     });
   }

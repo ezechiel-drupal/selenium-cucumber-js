@@ -1,5 +1,5 @@
 import { By, WebDriver, WebElement } from "selenium-webdriver";
-import { ElementLocator, InputValue } from "../env/global";
+import { ElementLocator, InputValue, PageIndex } from "../env/global";
 
 export const getElementByCssSelector = async (
   driver: WebDriver,
@@ -29,6 +29,20 @@ export const elementDisplayed = async (
   }
 };
 
+export const elementDisplayedAtIndex = async (
+  driver: WebDriver,
+  elementIdentifier: ElementLocator,
+  elementIndex: number
+): Promise<boolean | null> => {
+  try {
+    const elements = await driver.findElements(By.css(elementIdentifier));
+    await elements[elementIndex].isDisplayed();
+    return true;
+  } catch {
+    return false;
+  }
+};
+
 export const getElementText = async (
   driver: WebDriver,
   elementIdentifier: ElementLocator
@@ -41,10 +55,10 @@ export const getElementText = async (
 export const getElementTextAtIndex = async (
   driver: WebDriver,
   elementIdentifier: ElementLocator,
-  index: number
+  elementIndex: number
 ): Promise<string | null> => {
   const elements = await getElementsByCssSelector(driver, elementIdentifier);
-  const textAtIndex = await elements[index].getText();
+  const textAtIndex = await elements[elementIndex].getText();
   return textAtIndex;
 };
 
@@ -59,10 +73,10 @@ export const clickElement = async (
 export const clickElementAtIndex = async (
   driver: WebDriver,
   elementIdentifier: ElementLocator,
-  index: number
+  elementIndex: number
 ): Promise<void> => {
   const elements = await getElementsByCssSelector(driver, elementIdentifier);
-  await elements[index].click();
+  await elements[elementIndex].click();
 };
 
 export const clickElementWithText = async (
@@ -105,12 +119,12 @@ export const scrollElementIntoView = async (
 export const scrollElementIntoViewAtIndex = async (
   driver: WebDriver,
   elementIdentifier: ElementLocator,
-  index: number
+  elementIndex: number
 ): Promise<void> => {
   const element = await getElementsByCssSelector(driver, elementIdentifier);
   await driver.executeScript(
     "arguments[0].scrollIntoView(false);",
-    element[index]
+    element[elementIndex]
   );
   await driver.sleep(1500);
 };
@@ -136,7 +150,7 @@ export const switchIframe = async (
 
 export const switchWindow = async (
   driver: WebDriver,
-  pageIndex: number
+  pageIndex: PageIndex
 ): Promise<void> => {
   const winHandles = await driver.getAllWindowHandles();
   const currentWindow = winHandles[pageIndex];
@@ -155,9 +169,58 @@ export const inputElementValue = async (
 
 export const getTitleWithinPage = async (
   driver: WebDriver,
-  pageIndex: number
+  pageIndex: PageIndex
 ): Promise<string | null> => {
   await switchWindow(driver, pageIndex);
 
   return driver.getTitle();
+};
+
+const retrieveTableData = async (
+  driver: WebDriver,
+  elementIdentifier: ElementLocator
+) => {
+  return new Promise((resolve) => {
+    const cell: string[] = [];
+    driver.findElement(By.css(elementIdentifier)).then(async function (rows) {
+      rows.findElements(By.css("tr td")).then(async function (cells) {
+        for (let i = 0; i < cells.length; i++) {
+          const cell_text = await cells[i].getText();
+          cell.push(cell_text);
+        }
+        resolve(cell);
+      });
+    });
+  });
+};
+
+export const getTableData = async (
+  driver: WebDriver,
+  elementIdentifier: ElementLocator
+): Promise<string> => {
+  const asyncFunction = [await retrieveTableData(driver, elementIdentifier)];
+
+  const tableData = await Promise.all(asyncFunction);
+
+  return tableData.toString();
+};
+
+export const clickDismissOnDialog = async (
+  driver: WebDriver
+): Promise<void> => {
+  await driver.switchTo().alert().dismiss();
+};
+
+export const clickAcceptOnDialog = async (driver: WebDriver): Promise<void> => {
+  await driver.switchTo().alert().accept();
+};
+
+export const getAttributeText = async (
+  driver: WebDriver,
+  elementIdentifier: ElementLocator,
+  attribute: string
+): Promise<string | null> => {
+  const element = await getElementByCssSelector(driver, elementIdentifier);
+  const attributeText = await element.getAttribute(attribute);
+  return attributeText;
 };

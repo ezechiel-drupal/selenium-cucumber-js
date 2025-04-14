@@ -1,13 +1,18 @@
-import { Then } from "@cucumber/cucumber";
+import { DataTable, Then } from "@cucumber/cucumber";
 import { ElementKey, Negate } from "../../env/global";
-import { elementChecked } from "../../support/html-behavior";
+import { getTableData } from "../../support/html-behavior";
 import { waitFor, waitForSelector } from "../../support/wait-for-behavior";
 import { getElementLocator } from "../../support/web-element-helper";
 import { ScenarioWorld } from "../setup/world";
 
 Then(
-  /^The "([^"]*)" (?:check box|radio button|switch) should( not)? be checked$/,
-  async function (this: ScenarioWorld, elementKey: ElementKey, negate: Negate) {
+  /^The "([^"]*)" table should( not)? equal the following:$/,
+  async function (
+    this: ScenarioWorld,
+    elementKey: ElementKey,
+    negate: Negate,
+    dataTable: DataTable
+  ) {
     const {
       screen: { driver },
       globalConfig,
@@ -23,14 +28,9 @@ Then(
       const elementStable = await waitForSelector(driver, elementIdentifier);
 
       if (elementStable) {
-        const isElementChecked = await elementChecked(
-          driver,
-          elementIdentifier
-        );
-        return isElementChecked === !negate;
+        const tableData = await getTableData(driver, elementIdentifier);
+        return (tableData === dataTable.raw().toString()) === !negate;
       }
-
-      return elementStable;
     });
   }
 );

@@ -65,3 +65,7 @@ export const getCurrentPageId = async (
 
   return currentPageId;
 };
+
+export const reloadPage = async (driver: WebDriver): Promise<void> => {
+  await driver.navigate().refresh();
+};
