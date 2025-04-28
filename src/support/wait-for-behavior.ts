@@ -55,10 +55,9 @@ export const waitForSelectorAtIndex = async (
   try {
     await driver.switchTo().defaultContent();
     await driver
-      .findElement(By.css(elementIdentifier))
+      .findElement(By.className(elementIdentifier))
       .then(async (element) => {
-        await element.getAttribute("id");
-        await element.click();
+        await element.getAttribute("class");
       });
     return true;
   } catch {

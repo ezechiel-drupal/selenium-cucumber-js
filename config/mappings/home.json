@@ -1,6 +1,3 @@
 {
-  "partners header": "#dev-partners",
-  "webdriver logo": "selenium_webdriver",
-  "about": "\"About\"",
-  "about selenium": "About Selenium"
+  "copyright section": "[id='copyright-numeric']"
 }

@@ -22,7 +22,7 @@ export const elementDisplayed = async (
   elementIdentifier: ElementLocator
 ): Promise<boolean | null> => {
   try {
-    await driver.findElement(By.id(elementIdentifier));
+    await driver.findElement(By.css(elementIdentifier));
     return true;
   } catch {
     return false;
@@ -49,6 +49,10 @@ export const getElementText = async (
 ): Promise<string | null> => {
   const element = await getElementByCssSelector(driver, elementIdentifier);
   const elementText = await element.getAttribute("innerText");
+
+  // Debugging help
+  // console.log("elementText is :", elementText);
+
   return elementText;
 };
 

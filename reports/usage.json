@@ -6,130 +6,192 @@
         "text": "I am on the \"home\" page",
         "uri": "src/features/home-page.feature",
         "duration": {
-          "seconds": 1,
-          "nanos": 439598299
+          "seconds": 5,
+          "nanos": 142134600
         }
       },
       {
         "line": 7,
-        "text": "I am on the \"about\" page",
-        "uri": "src/features/create-contact.feature",
+        "text": "I am on the \"rh-specialist\" page",
+        "uri": "src/features/i-am-hr-specialist.feature",
         "duration": {
-          "seconds": 1,
-          "nanos": 379865227
+          "seconds": 3,
+          "nanos": 686835397
+        }
+      },
+      {
+        "line": 7,
+        "text": "I am on the \"rh-specialist\" page",
+        "uri": "src/features/i-am-hr-specialist.feature",
+        "duration": {
+          "seconds": 3,
+          "nanos": 564811928
+        }
+      },
+      {
+        "line": 7,
+        "text": "I am on the \"rh-specialist\" page",
+        "uri": "src/features/i-am-hr-specialist.feature",
+        "duration": {
+          "seconds": 3,
+          "nanos": 412700952
+        }
+      },
+      {
+        "line": 7,
+        "text": "I am on the \"rh-specialist\" page",
+        "uri": "src/features/i-am-hr-specialist.feature",
+        "duration": {
+          "seconds": 3,
+          "nanos": 325549886
         }
       }
     ],
     "code": "async function (pageId) {\n    const { screen: { driver }, globalConfig, } = this;\n    await (0, navigation_behavior_2.navigateToPage)(driver, pageId, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(() => (0, navigation_behavior_1.currentPathMatchesPageId)(driver, pageId, globalConfig));\n}",
-    "line": 8,
+    "line": 11,
     "pattern": "^I am on the \"([^\"]*)\" page$",
     "patternType": "RegularExpression",
     "uri": "src/step-definitions/navigation.ts",
     "meanDuration": {
-      "seconds": 1,
-      "nanos": 409731763
-    }
-  },
-  {
-    "matches": [
-      {
-        "line": 8,
-        "text": "I click on the \"selenium logo\"",
-        "uri": "src/features/create-contact.feature",
-        "duration": {
-          "seconds": 0,
-          "nanos": 490865369
-        }
-      }
-    ],
-    "code": "async function (elementKey) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        if (elementStable) {\n            await (0, html_behavior_1.clickElement)(driver, elementIdentifier);\n        }\n        return elementStable;\n    });\n}",
-    "line": 12,
-    "pattern": "^I click on the \"([^\"]*)\"$",
-    "patternType": "RegularExpression",
-    "uri": "src/step-definitions/click.ts",
-    "meanDuration": {
-      "seconds": 0,
-      "nanos": 490865369
-    }
-  },
-  {
-    "matches": [
-      {
-        "line": 8,
-        "text": "The \"partners header\" should contain the text \"Development Partners\"",
-        "uri": "src/features/home-page.feature",
-        "duration": {
-          "seconds": 0,
-          "nanos": 154950181
-        }
-      }
-    ],
-    "code": "async function (elementKey, exepectedElementText, negate) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        if (elementStable) {\n            const elementText = await (0, html_behavior_1.getElementText)(driver, elementIdentifier);\n            return elementText?.includes(exepectedElementText) === !negate;\n        }\n        return elementStable;\n    });\n}",
-    "line": 13,
-    "pattern": "^The \"([^\"]*)\" should( not)? contain the text \"(.*)\"$",
-    "patternType": "RegularExpression",
-    "uri": "src/step-definitions/assertions/verify-element-value.ts",
-    "meanDuration": {
-      "seconds": 0,
-      "nanos": 154950181
+      "seconds": 3,
+      "nanos": 826406552
     }
   },
   {
     "matches": [
       {
         "line": 9,
-        "text": "The \"webdriver logo\" should be displayed",
+        "text": "The \"hr manager\" should be displayed",
+        "uri": "src/features/i-am-hr-specialist.feature",
+        "duration": {
+          "seconds": 16,
+          "nanos": 177569912
+        }
+      },
+      {
+        "line": 8,
+        "text": "The \"copyright section\" should be displayed",
         "uri": "src/features/home-page.feature",
         "duration": {
           "seconds": 0,
-          "nanos": 37820369
+          "nanos": 135139721
+        }
+      },
+      {
+        "line": 9,
+        "text": "The \"all profiles\" should be displayed",
+        "uri": "src/features/i-am-hr-specialist.feature",
+        "duration": {
+          "seconds": 0,
+          "nanos": 78106986
+        }
+      },
+      {
+        "line": 9,
+        "text": "The \"intern recruiter\" should be displayed",
+        "uri": "src/features/i-am-hr-specialist.feature",
+        "duration": {
+          "seconds": 0,
+          "nanos": 41984228
+        }
+      },
+      {
+        "line": 9,
+        "text": "The \"candidate recruiter\" should be displayed",
+        "uri": "src/features/i-am-hr-specialist.feature",
+        "duration": {
+          "seconds": 0,
+          "nanos": 38145370
         }
       }
     ],
     "code": "async function (elementKey, negate) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const isElementVisible = await (0, html_behavior_1.elementDisplayed)(driver, elementIdentifier);\n        return isElementVisible === !negate;\n    });\n}",
-    "line": 8,
+    "line": 13,
     "pattern": "^The \"([^\"]*)\" should( not)? be displayed$",
     "patternType": "RegularExpression",
     "uri": "src/step-definitions/assertions/verify-element-visibility.ts",
     "meanDuration": {
-      "seconds": 0,
-      "nanos": 37820369
+      "seconds": 3,
+      "nanos": 294189243
     }
   },
   {
     "matches": [
       {
-        "line": 9,
-        "text": "I am directed to the \"home\" page",
-        "uri": "src/features/create-contact.feature",
+        "line": 8,
+        "text": "I click the \"Tous profils\" button",
+        "uri": "src/features/i-am-hr-specialist.feature",
         "duration": {
           "seconds": 0,
-          "nanos": 16467609
+          "nanos": 410167987
+        }
+      },
+      {
+        "line": 8,
+        "text": "I click the \"Recruteur en recherche d'alternant ou stagiaire\" button",
+        "uri": "src/features/i-am-hr-specialist.feature",
+        "duration": {
+          "seconds": 0,
+          "nanos": 386618506
+        }
+      },
+      {
+        "line": 8,
+        "text": "I click the \"Responsable RH\" button",
+        "uri": "src/features/i-am-hr-specialist.feature",
+        "duration": {
+          "seconds": 0,
+          "nanos": 333335605
+        }
+      },
+      {
+        "line": 8,
+        "text": "I click the \"Recruteur en recherche de candidats\" button",
+        "uri": "src/features/i-am-hr-specialist.feature",
+        "duration": {
+          "seconds": 0,
+          "nanos": 325377112
         }
       }
     ],
-    "code": "async function (pageId) {\n    const { screen: { driver }, globalConfig, } = this;\n    await (0, wait_for_behavior_1.waitFor)(() => (0, navigation_behavior_1.currentPathMatchesPageId)(driver, pageId, globalConfig));\n}",
-    "line": 23,
-    "pattern": "^I am directed to the \"([^\"]*)\" page$",
+    "code": "async function (elementKey) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        if (elementStable) {\n            await (0, html_behavior_1.clickElement)(driver, elementIdentifier);\n        }\n        return elementStable;\n    });\n}",
+    "line": 17,
+    "pattern": "^I click the \"([^\"]*)\" (?:button|link)$",
     "patternType": "RegularExpression",
-    "uri": "src/step-definitions/navigation.ts",
+    "uri": "src/step-definitions/click.ts",
     "meanDuration": {
       "seconds": 0,
-      "nanos": 16467609
+      "nanos": 363874802
     }
+  },
+  {
+    "matches": [],
+    "code": "async function (dismissDialog) {\n    const { screen: { driver }, } = this;\n    await driver.switchTo().alert().accept();\n    if (dismissDialog) {\n        await (0, html_behavior_1.clickDismissOnDialog)(driver);\n    }\n    else {\n        await (0, html_behavior_1.clickAcceptOnDialog)(driver);\n    }\n}",
+    "line": 8,
+    "pattern": "^I click (accept)?(dismiss)? on the alert dialog$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/alert.ts"
   },
   {
     "matches": [],
     "code": "async function (elementKey, negate) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        if (elementStable) {\n            const isElementChecked = await (0, html_behavior_1.elementChecked)(driver, elementIdentifier);\n            return isElementChecked === !negate;\n        }\n        return elementStable;\n    });\n}",
     "line": 8,
-    "pattern": "^The \"([^\"]*)\" (?:check box|radio button) should( not)? be checked$",
+    "pattern": "^The \"([^\"]*)\" (?:check box|radio button|switch) should( not)? be checked$",
     "patternType": "RegularExpression",
     "uri": "src/step-definitions/assertions/verify-element-checked.ts"
   },
   {
     "matches": [],
+    "code": "async function (elementKey, exepectedElementText, negate) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        if (elementStable) {\n            const elementText = await (0, html_behavior_1.getElementText)(driver, elementIdentifier);\n            return elementText?.includes(exepectedElementText) === !negate;\n        }\n        return elementStable;\n    });\n}",
+    "line": 23,
+    "pattern": "^The \"([^\"]*)\" should( not)? contain the text \"(.*)\"$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/assertions/verify-element-value.ts"
+  },
+  {
+    "matches": [],
     "code": "async function (elementKey, negate, expectedElementValue) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        if (elementStable) {\n            const elementAttribute = await (0, html_behavior_1.getElementText)(driver, elementIdentifier);\n            return (elementAttribute === expectedElementValue) === !negate;\n        }\n        return elementStable;\n    });\n}",
-    "line": 45,
+    "line": 55,
     "pattern": "^The \"([^\"]*)\" should( not)? equal the text \"(.*)\"$",
     "patternType": "RegularExpression",
     "uri": "src/step-definitions/assertions/verify-element-value.ts"
@@ -137,7 +199,7 @@
   {
     "matches": [],
     "code": "async function (elementKey, negate, expectedElementValue) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        if (elementStable) {\n            const elementAttribute = await (0, html_behavior_1.getElementValue)(driver, elementIdentifier);\n            return elementAttribute?.includes(expectedElementValue) === !negate;\n        }\n        return elementStable;\n    });\n}",
-    "line": 80,
+    "line": 90,
     "pattern": "^The \"([^\"]*)\" should( not)? contain the value \"(.*)\"$",
     "patternType": "RegularExpression",
     "uri": "src/step-definitions/assertions/verify-element-value.ts"
@@ -145,16 +207,48 @@
   {
     "matches": [],
     "code": "async function (elementKey, negate, expectedElementValue) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        if (elementStable) {\n            const elementAttribute = await (0, html_behavior_1.getElementValue)(driver, elementIdentifier);\n            return (elementAttribute === expectedElementValue) === !negate;\n        }\n        return elementStable;\n    });\n}",
-    "line": 115,
+    "line": 125,
     "pattern": "^The \"([^\"]*)\" should( not)? equal the value \"(.*)\"$",
     "patternType": "RegularExpression",
     "uri": "src/step-definitions/assertions/verify-element-value.ts"
   },
   {
     "matches": [],
+    "code": "async function (elementPosition, elementKey, negate, expectedElementText) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    const elementIndex = Number(elementPosition.match(/\\d/g)?.join(\"\")) - 1;\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelectorAtIndex)(driver, elementIdentifier);\n        if (elementStable) {\n            const elementText = await (0, html_behavior_1.getElementTextAtIndex)(driver, elementIdentifier, elementIndex);\n            return elementText?.includes(expectedElementText) === !negate;\n        }\n        return elementStable;\n    });\n}",
+    "line": 160,
+    "pattern": "^The ([0-9]+th|[0-9]+st|[0-9]+nd|[0-9]+rd) \"([^\"]*)\" should( not)? contain the text \"(.*)\"$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/assertions/verify-element-value.ts"
+  },
+  {
+    "matches": [],
+    "code": "async function (elementKey, attribute, negate, expectedElementText) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        if (elementStable) {\n            const attributeText = await (0, html_behavior_1.getAttributeText)(driver, elementIdentifier, attribute);\n            return attributeText?.includes(expectedElementText) === !negate;\n        }\n        return elementStable;\n    });\n}",
+    "line": 202,
+    "pattern": "^The \"([^\"]*)\" \"([^\"]*)\" attribute should( not)? contain the text \"(.*)\"$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/assertions/verify-element-value.ts"
+  },
+  {
+    "matches": [],
     "code": "async function (elementKey, negate) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        if (elementStable) {\n            const isElementEnabled = await (0, html_behavior_1.elementEnabled)(driver, elementIdentifier);\n            return isElementEnabled === !negate;\n        }\n        return elementStable;\n    });\n}",
-    "line": 32,
+    "line": 37,
     "pattern": "^The \"([^\"]*)\" should( not)? be enabled$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/assertions/verify-element-visibility.ts"
+  },
+  {
+    "matches": [],
+    "code": "async function (elementPosition, elementKey, negate) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    const index = Number(elementPosition.match(/\\d/g)?.join(\"\")) - 1;\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const isElementVisible = await (0, html_behavior_1.elementDisplayedAtIndex)(driver, elementIdentifier, index);\n        return isElementVisible === !negate;\n    });\n}",
+    "line": 67,
+    "pattern": "^The ([0-9]+th|[0-9]+st|[0-9]+nd|[0-9]+rd) \"([^\"]*)\" should( not)? be displayed$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/assertions/verify-element-visibility.ts"
+  },
+  {
+    "matches": [],
+    "code": "async function (negate, count, elementKey) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elements = await (0, html_behavior_1.getElementsByCssSelector)(driver, elementIdentifier);\n        return (Number(count) === elements.length) === !negate;\n    });\n}",
+    "line": 99,
+    "pattern": "^I should( not)? see (\\d*) \"([^\"]*)\" displayed$",
     "patternType": "RegularExpression",
     "uri": "src/step-definitions/assertions/verify-element-visibility.ts"
   },
@@ -184,24 +278,80 @@
   },
   {
     "matches": [],
-    "code": "async function (pagePosition, negate, expectedTitle) {\n    const { screen: { driver }, } = this;\n    const pageIndex = Number(pagePosition.match(/\\d/g)?.join(\"\")) - 1;\n    /*     await waitFor(async () => {\n      const pageTitle = await getTitleWithinPage(driver, pageIndex);\n      return pageTitle?.includes(expectedTitle) === !negate;\n    }); */\n}",
-    "line": 6,
-    "pattern": "^The ([0-9]+th|[0-9]+st|[0-9]+nd|[0-9]+rd) tab should( not)? be displayed$",
+    "code": "async function (pagePosition, negate, expectedTitle) {\n    const { screen: { driver }, } = this;\n    const pageIndex = Number(pagePosition.match(/\\d/g)?.join(\"\")) - 1;\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const pageTitle = await (0, html_behavior_1.getTitleWithinPage)(driver, pageIndex);\n        return pageTitle?.includes(expectedTitle) === !negate;\n    });\n}",
+    "line": 14,
+    "pattern": "^The ([0-9]+th|[0-9]+st|[0-9]+nd|[0-9]+rd) (?:tab|window) should( not)? contain the title \"(.*)\"$",
     "patternType": "RegularExpression",
     "uri": "src/step-definitions/assertions/verify-new-page.ts"
   },
   {
     "matches": [],
+    "code": "async function (elementKey, pagePosition, negate) {\n    const { screen: { driver }, globalConfig, } = this;\n    const pageIndex = Number(pagePosition.match(/\\d/g)?.join(\"\")) - 1;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const isElementVisible = await (0, wait_for_behavior_1.waitForSelectorOnPage)(driver, elementIdentifier, pageIndex);\n        return isElementVisible === !negate;\n    });\n}",
+    "line": 35,
+    "pattern": "^The ([0-9]+th|[0-9]+st|[0-9]+nd|[0-9]+rd) (?:tab|window) should( not)? be displayed$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/assertions/verify-new-page.ts"
+  },
+  {
+    "matches": [],
+    "code": "async function (elementKey, pagePosition, negate, expectedElementText) {\n    const { screen: { driver }, globalConfig, } = this;\n    const pageIndex = Number(pagePosition.match(/\\d/g)?.join(\"\")) - 1;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelectorOnPage)(driver, elementIdentifier, pageIndex);\n        if (elementStable) {\n            const elementText = await (0, html_behavior_1.getElementText)(driver, elementIdentifier);\n            return elementText?.includes(expectedElementText) === !negate;\n        }\n        return elementStable;\n    });\n}",
+    "line": 67,
+    "pattern": "^The ([0-9]+th|[0-9]+st|[0-9]+nd|[0-9]+rd) (?:tab|window) should( not)? contain the text \"(.*)\"$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/assertions/verify-new-page.ts"
+  },
+  {
+    "matches": [],
+    "code": "async function (elementKey, pagePosition, negate, expectedElementText) {\n    const { screen: { driver }, globalConfig, } = this;\n    const pageIndex = Number(pagePosition.match(/\\d/g)?.join(\"\")) - 1;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelectorOnPage)(driver, elementIdentifier, pageIndex);\n        if (elementStable) {\n            const elementText = await (0, html_behavior_1.getElementText)(driver, elementIdentifier);\n            return (elementText === expectedElementText) === !negate;\n        }\n        return elementStable;\n    });\n}",
+    "line": 106,
+    "pattern": "^The ([0-9]+th|[0-9]+st|[0-9]+nd|[0-9]+rd) (?:tab|window) should( not)? equal the text \"(.*)\"$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/assertions/verify-new-page.ts"
+  },
+  {
+    "matches": [],
+    "code": "async function (elementKey, negate, globalVariableKey) {\n    const { screen: { driver }, globalVariables, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        const variableText = globalVariables[globalVariableKey];\n        if (elementStable) {\n            const elementText = await (0, html_behavior_1.getElementText)(driver, elementIdentifier);\n            return (elementText === variableText) === !negate;\n        }\n        return elementStable;\n    });\n}",
+    "line": 8,
+    "pattern": "^The \"([^\"]*)\" should( not)? equal the \"([^\"]*)\" stored in global variables$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/assertions/verify-stored-value.ts"
+  },
+  {
+    "matches": [],
+    "code": "async function (elementKey, negate, globalVariableKey) {\n    const { screen: { driver }, globalVariables, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        const variableText = globalVariables[globalVariableKey];\n        if (elementStable) {\n            const elementText = await (0, html_behavior_1.getElementText)(driver, elementIdentifier);\n            return elementText?.includes(variableText) === !negate;\n        }\n        return elementStable;\n    });\n}",
+    "line": 42,
+    "pattern": "^The \"([^\"]*)\" should( not)? contain the \"([^\"]*)\" stored in global variables$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/assertions/verify-stored-value.ts"
+  },
+  {
+    "matches": [],
+    "code": "async function (elementKey, negate, dataTable) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        if (elementStable) {\n            const tableData = await (0, html_behavior_1.getTableData)(driver, elementIdentifier);\n            return (tableData === dataTable.raw().toString()) === !negate;\n        }\n    });\n}",
+    "line": 8,
+    "pattern": "^The \"([^\"]*)\" table should( not)? equal the following:$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/assertions/verify-table-value.ts"
+  },
+  {
+    "matches": [],
     "code": "async function (elementKey) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        if (elementStable) {\n            await (0, html_behavior_1.clickElement)(driver, elementIdentifier);\n        }\n        return elementStable;\n    });\n}",
     "line": 8,
-    "pattern": "^I (check)?(uncheck)? the \"([^\"]*)\" (?:check box|radio button)$",
+    "pattern": "^I (check)?(uncheck)? the \"([^\"]*)\" (?:check box|radio button|switch)$",
     "patternType": "RegularExpression",
     "uri": "src/step-definitions/check.ts"
   },
   {
     "matches": [],
+    "code": "async function (elementPosition, elementKey) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    const elementIndex = Number(elementPosition.match(/\\d/g)?.join(\"\")) - 1;\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelectors)(driver, elementIdentifier);\n        if (elementStable) {\n            await (0, html_behavior_1.clickElementAtIndex)(driver, elementIdentifier, elementIndex);\n        }\n        return elementStable;\n    });\n}",
+    "line": 41,
+    "pattern": "^I click the ([0-9]+th|[0-9]+st|[0-9]+nd|[0-9]+rd) \"([^\"]*)\" (?:button|link)$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/click.ts"
+  },
+  {
+    "matches": [],
     "code": "async function (elementKey) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelectorWithText)(driver, elementIdentifier);\n        if (elementStable) {\n            await (0, html_behavior_1.clickElementWithText)(driver, elementIdentifier);\n        }\n        return elementStable;\n    });\n}",
-    "line": 36,
+    "line": 71,
     "pattern": "^I click the element with text \"([^\"]*)\"$",
     "patternType": "RegularExpression",
     "uri": "src/step-definitions/click.ts"
@@ -216,10 +366,74 @@
   },
   {
     "matches": [],
+    "code": "async function (pageId) {\n    const { screen: { driver }, globalConfig, } = this;\n    await (0, wait_for_behavior_1.waitFor)(() => (0, navigation_behavior_1.currentPathMatchesPageId)(driver, pageId, globalConfig));\n}",
+    "line": 25,
+    "pattern": "^I am directed to the \"([^\"]*)\" page$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/navigation.ts"
+  },
+  {
+    "matches": [],
+    "code": "async function (pageId) {\n    const { screen: { driver }, globalConfig, } = this;\n    await (0, navigation_behavior_1.reloadPage)(driver);\n    await (0, wait_for_behavior_1.waitFor)(() => (0, navigation_behavior_1.currentPathMatchesPageId)(driver, pageId, globalConfig), {\n        timeout: 30000,\n    });\n}",
+    "line": 37,
+    "pattern": "^I refresh the \"([^\"]*)\" page$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/navigation.ts"
+  },
+  {
+    "matches": [],
+    "code": "async function (elementKey, pagePosition, inputValue) {\n    const { screen: { driver }, globalConfig, } = this;\n    const pageIndex = Number(pagePosition.match(/\\d/g)?.join(\"\")) - 1;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelectorOnPage)(driver, elementIdentifier, pageIndex);\n        if (elementStable) {\n            await (0, html_behavior_1.inputElementValue)(driver, elementIdentifier, inputValue);\n        }\n        return elementStable;\n    });\n}",
+    "line": 14,
+    "pattern": "^I fill in the \"([^\"]*)\" input on the ([0-9]+th|[0-9]+st|[0-9]+nd|[0-9]+rd) (?:tab|window) with \"([^\"]*)\"$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/page.ts"
+  },
+  {
+    "matches": [],
+    "code": "async function (elementKey, pagePosition, negate) {\n    const { screen: { driver }, globalConfig, } = this;\n    const pageIndex = Number(pagePosition.match(/\\d/g)?.join(\"\")) - 1;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const isElementVisible = await (0, wait_for_behavior_1.waitForSelectorOnPage)(driver, elementIdentifier, pageIndex);\n        return isElementVisible === !negate;\n    });\n}",
+    "line": 50,
+    "pattern": "^The \"([^\"]*)\" on the ([0-9]+th|[0-9]+st|[0-9]+nd|[0-9]+rd) tab should( not)? be displayed$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/page.ts"
+  },
+  {
+    "matches": [],
+    "code": "async function (elementKey, pagePosition, negate, expectedElementText) {\n    const { screen: { driver }, globalConfig, } = this;\n    const pageIndex = Number(pagePosition.match(/\\d/g)?.join(\"\")) - 1;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelectorOnPage)(driver, elementIdentifier, pageIndex);\n        if (elementStable) {\n            const elementText = await (0, html_behavior_1.getElementText)(driver, elementIdentifier);\n            return elementText?.includes(expectedElementText) === !negate;\n        }\n        return elementStable;\n    });\n}",
+    "line": 82,
+    "pattern": "^The \"([^\"]*)\" on the ([0-9]+th|[0-9]+st|[0-9]+nd|[0-9]+rd) tab should( not)? contain the text \"(.*)\"$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/page.ts"
+  },
+  {
+    "matches": [],
+    "code": "async function (elementKey, pagePosition, negate, expectedElementText) {\n    const { screen: { driver }, globalConfig, } = this;\n    const pageIndex = Number(pagePosition.match(/\\d/g)?.join(\"\")) - 1;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelectorOnPage)(driver, elementIdentifier, pageIndex);\n        if (elementStable) {\n            const elementText = await (0, html_behavior_1.getElementText)(driver, elementIdentifier);\n            return (elementText === expectedElementText) === !negate;\n        }\n        return elementStable;\n    });\n}",
+    "line": 121,
+    "pattern": "^The \"([^\"]*)\" on the ([0-9]+th|[0-9]+st|[0-9]+nd|[0-9]+rd) tab should( not)? equal the text \"(.*)\"$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/page.ts"
+  },
+  {
+    "matches": [],
     "code": "async function (elementKey) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        if (elementStable) {\n            await (0, html_behavior_1.scrollElementIntoView)(driver, elementIdentifier);\n        }\n        return elementStable;\n    });\n}",
-    "line": 10,
+    "line": 15,
     "pattern": "^I scroll to the \"([^\"]*)\" (?:.*?)$",
     "patternType": "RegularExpression",
     "uri": "src/step-definitions/scroll.ts"
+  },
+  {
+    "matches": [],
+    "code": "async function (elementPosition, elementKey) {\n    const { screen: { driver }, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    const elementIndex = Number(elementPosition.match(/\\d/g)?.join(\"\")) - 1;\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelectors)(driver, elementIdentifier);\n        if (elementStable) {\n            await (0, html_behavior_1.scrollElementIntoViewAtIndex)(driver, elementIdentifier, elementIndex);\n        }\n        return elementStable;\n    });\n}",
+    "line": 40,
+    "pattern": "^I scroll to the ([0-9]+th|[0-9]+st|[0-9]+nd|[0-9]+rd) \"([^\"]*)\" (?:.*?)$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/scroll.ts"
+  },
+  {
+    "matches": [],
+    "code": "async function (elementKey, globalVariableKey) {\n    const { screen: { driver }, globalVariables, globalConfig, } = this;\n    const elementIdentifier = await (0, web_element_helper_1.getElementLocator)(driver, elementKey, globalConfig);\n    await (0, wait_for_behavior_1.waitFor)(async () => {\n        const elementStable = await (0, wait_for_behavior_1.waitForSelector)(driver, elementIdentifier);\n        if (elementStable) {\n            const elementText = await (0, html_behavior_1.getElementText)(driver, elementIdentifier);\n            if (elementText != null) {\n                globalVariables[globalVariableKey] = elementText;\n            }\n        }\n    });\n}",
+    "line": 8,
+    "pattern": "^I retrieve the \"([^\"]*)\" text and store it as \"([^\"]*)\" in global variables$",
+    "patternType": "RegularExpression",
+    "uri": "src/step-definitions/stored.ts"
   }
 ]

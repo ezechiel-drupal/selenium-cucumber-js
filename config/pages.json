@@ -7,5 +7,14 @@
   "about": {
     "route": "/about/",
     "regex": "^/about/$"
+  },
+
+  "nous sommes": {
+    "route": "/nous-sommes/",
+    "regex": "^/nous-sommes/$"
+  },
+  "rh-specialist": {
+    "route": "/visiteur/8239/0/",
+    "regex": "^/visiteur/8239/0/$"
   }
 }
