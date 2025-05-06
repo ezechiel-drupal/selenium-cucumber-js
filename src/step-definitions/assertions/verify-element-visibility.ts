@@ -4,7 +4,7 @@ import {
   elementDisplayed,
   elementDisplayedAtIndex,
   elementEnabled,
-  getElementsByCssSelector,
+  getElements,
 } from "../../support/html-behavior";
 import { waitFor, waitForSelector } from "../../support/wait-for-behavior";
 import { getElementLocator } from "../../support/web-element-helper";
@@ -116,10 +116,7 @@ Then(
     );
 
     await waitFor(async () => {
-      const elements = await getElementsByCssSelector(
-        driver,
-        elementIdentifier
-      );
+      const elements = await getElements(driver, elementIdentifier);
       return (Number(count) === elements.length) === !negate;
     });
   }

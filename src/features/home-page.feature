@@ -1,8 +1,16 @@
-Feature: As a user I expect to be able to navigate the homepage
+Feature: Homepage
+  As a user
+  I expect to be able to see the webdriver logo
+  So that I'm sure that I'm on the home page
 
   @dev
   @smoke
   @regression
-  Scenario: As a user I expect to be able to see the context header
+  Scenario Outline: As a user I expect to be able to see the important stuff
     Given I am on the "home" page
-    Then The "copyright section" should be displayed
+    Then The <item> should be displayed
+
+    Examples:
+      | item                |
+      | "selenium logo"     |
+      | "copyright section" |

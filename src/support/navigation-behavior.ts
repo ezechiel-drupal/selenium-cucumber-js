@@ -27,7 +27,7 @@ export const currentPathMatchesPageId = async (
   const currentURL: string = await driver.getCurrentUrl();
   const { pathname: currentPath } = new URL(currentURL);
 
-  // Debugging help - console.log("currentPath", currentPath);
+  // Debugging help: console.log("currentPath", currentPath);
 
   return pathMatchesPageId(currentPath, pageId, globalConfig);
 };

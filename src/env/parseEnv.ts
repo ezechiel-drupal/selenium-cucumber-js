@@ -1,10 +1,10 @@
-import { readFileSync } from 'fs';
+import { readFileSync } from "fs";
 
 export const getJsonFromFile = <T = Record<string, string>>(
   path: string
 ): T => {
   const fullPath = `${process.cwd()}${path}`;
-  const fileContent = readFileSync(fullPath, 'utf8');
+  const fileContent = readFileSync(fullPath, "utf8");
   return JSON.parse(fileContent) as T;
 };
 

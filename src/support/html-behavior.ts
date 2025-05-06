@@ -1,7 +1,7 @@
 import { By, WebDriver, WebElement } from "selenium-webdriver";
 import { ElementLocator, InputValue, PageIndex } from "../env/global";
 
-export const getElementByCssSelector = async (
+export const getElement = async (
   driver: WebDriver,
   elementIdentifier: ElementLocator
 ): Promise<WebElement> => {
@@ -9,7 +9,7 @@ export const getElementByCssSelector = async (
   return element;
 };
 
-export const getElementsByCssSelector = async (
+export const getElements = async (
   driver: WebDriver,
   elementIdentifier: ElementLocator
 ): Promise<WebElement[]> => {
@@ -47,7 +47,7 @@ export const getElementText = async (
   driver: WebDriver,
   elementIdentifier: ElementLocator
 ): Promise<string | null> => {
-  const element = await getElementByCssSelector(driver, elementIdentifier);
+  const element = await getElement(driver, elementIdentifier);
   const elementText = await element.getAttribute("innerText");
 
   // Debugging help
@@ -61,7 +61,7 @@ export const getElementTextAtIndex = async (
   elementIdentifier: ElementLocator,
   elementIndex: number
 ): Promise<string | null> => {
-  const elements = await getElementsByCssSelector(driver, elementIdentifier);
+  const elements = await getElements(driver, elementIdentifier);
   const textAtIndex = await elements[elementIndex].getText();
   return textAtIndex;
 };
@@ -70,7 +70,7 @@ export const clickElement = async (
   driver: WebDriver,
   elementIdentifier: ElementLocator
 ): Promise<void> => {
-  const element = await getElementByCssSelector(driver, elementIdentifier);
+  const element = await getElement(driver, elementIdentifier);
   await element.click();
 };
 
@@ -79,7 +79,7 @@ export const clickElementAtIndex = async (
   elementIdentifier: ElementLocator,
   elementIndex: number
 ): Promise<void> => {
-  const elements = await getElementsByCssSelector(driver, elementIdentifier);
+  const elements = await getElements(driver, elementIdentifier);
   await elements[elementIndex].click();
 };
 
@@ -95,7 +95,7 @@ export const elementChecked = async (
   driver: WebDriver,
   elementIdentifier: ElementLocator
 ): Promise<boolean | null> => {
-  const element = await getElementByCssSelector(driver, elementIdentifier);
+  const element = await getElement(driver, elementIdentifier);
   if (!(await element.isSelected())) {
     return false;
   }
@@ -106,7 +106,7 @@ export const getElementValue = async (
   driver: WebDriver,
   elementIdentifier: ElementLocator
 ): Promise<string | null> => {
-  const element = await getElementByCssSelector(driver, elementIdentifier);
+  const element = await getElement(driver, elementIdentifier);
   const elementValue = await element.getAttribute("value");
   return elementValue;
 };
@@ -115,7 +115,7 @@ export const scrollElementIntoView = async (
   driver: WebDriver,
   elementIdentifier: ElementLocator
 ): Promise<void> => {
-  const element = await getElementByCssSelector(driver, elementIdentifier);
+  const element = await getElement(driver, elementIdentifier);
   await driver.executeScript("arguments[0].scrollIntoView(false);", element);
   await driver.sleep(1500);
 };
@@ -125,7 +125,7 @@ export const scrollElementIntoViewAtIndex = async (
   elementIdentifier: ElementLocator,
   elementIndex: number
 ): Promise<void> => {
-  const element = await getElementsByCssSelector(driver, elementIdentifier);
+  const element = await getElements(driver, elementIdentifier);
   await driver.executeScript(
     "arguments[0].scrollIntoView(false);",
     element[elementIndex]
@@ -137,7 +137,7 @@ export const elementEnabled = async (
   driver: WebDriver,
   elementIdentifier: ElementLocator
 ): Promise<boolean | null> => {
-  const element = await getElementByCssSelector(driver, elementIdentifier);
+  const element = await getElement(driver, elementIdentifier);
   if (!(await element.isEnabled())) {
     return false;
   } else {
@@ -166,7 +166,7 @@ export const inputElementValue = async (
   elementIdentifier: ElementLocator,
   inputValue: InputValue
 ): Promise<void> => {
-  const element = await getElementByCssSelector(driver, elementIdentifier);
+  const element = await getElement(driver, elementIdentifier);
   await element.clear();
   await element.sendKeys(inputValue);
 };
@@ -224,7 +224,7 @@ export const getAttributeText = async (
   elementIdentifier: ElementLocator,
   attribute: string
 ): Promise<string | null> => {
-  const element = await getElementByCssSelector(driver, elementIdentifier);
+  const element = await getElement(driver, elementIdentifier);
   const attributeText = await element.getAttribute(attribute);
   return attributeText;
 };

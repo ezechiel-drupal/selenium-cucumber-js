@@ -97,7 +97,7 @@ Then(
 
         if (elementStable) {
           const elementText = await getElementText(driver, elementIdentifier);
-          return elementText?.includes(expectedElementText);
+          return elementText?.includes(expectedElementText) === !negate;
         }
       }
     });

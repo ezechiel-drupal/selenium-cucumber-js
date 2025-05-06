@@ -14,7 +14,6 @@ const chalk = new Chalk({ level: 1 });
 // Pointing to environment variables
 dotenv.config({ path: env("COMMON_CONFIG_FILE") });
 
-// 
 const hostsConfig: HostsConfig = getJsonFromFile(env("HOSTS_URLS_PATH"));
 const pagesConfig: PagesConfig = getJsonFromFile(env("PAGES_URLS_PATH"));
 const mappingFiles = fs.readdirSync(
@@ -42,7 +41,6 @@ const worldParameters: GlobalConfig = {
 const common = `./src/features/**/*.feature \
   --require-module ts-node/register \
   --require ./src/step-definitions/**/**/*.ts \
-  -f json:./reports/report.json \
   --world-parameters ${JSON.stringify(worldParameters)} \
   --format summary \
   --format html:./reports/report.html \

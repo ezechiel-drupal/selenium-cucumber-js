@@ -1,15 +1,15 @@
-import { Then } from "@cucumber/cucumber";
+import { When } from "@cucumber/cucumber";
 import { ElementKey, IframeKey, InputValue } from "../env/global";
-import { getElementLocator } from "../support/web-element-helper";
-import { ScenarioWorld } from "./setup/world";
+import { inputElementValue } from "../support/html-behavior";
 import {
   waitFor,
   waitForSelector,
   waitForSelectorInIframe,
 } from "../support/wait-for-behavior";
-import { inputElementValue } from "../support/html-behavior";
+import { getElementLocator } from "../support/web-element-helper";
+import { ScenarioWorld } from "./setup/world";
 
-Then(
+When(
   /^I fill in the "([^"]*)" input on the "([^"]*)" iframe with "([^"]*)"$/,
   async function (
     this: ScenarioWorld,
